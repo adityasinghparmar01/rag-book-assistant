@@ -8,7 +8,7 @@ langchain-openai
 langchain-mistralai
 openai
 mistralai
-
+langchain-huggingface
 # Vector Database
 
 chromadb
