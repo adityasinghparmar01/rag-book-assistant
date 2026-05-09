@@ -1,13 +1,15 @@
 from dotenv import load_dotenv
-from langchain_openai import OpenAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings 
 from langchain_community.vectorstores import Chroma
 from langchain_mistralai import ChatMistralAI
 from langchain_core.prompts import ChatPromptTemplate
 
 load_dotenv()
 
-embedding_model = OpenAIEmbeddings()
-
+embedding_model = HuggingFaceEmbeddings(
+    model_name="all-MiniLM-L6-v2"   # fast & lightweight
+)
+# load the vector store from chroma_db
 vectorstore = Chroma(
     persist_directory= "chroma_db",
     embedding_function=embedding_model
